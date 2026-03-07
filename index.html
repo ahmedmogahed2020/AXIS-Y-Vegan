@@ -8,7 +8,11 @@
   <meta name="description" content="سيروم AXIS-Y Vegan Collagen Eye Serum بكولاجين نباتي + ببتيدات + 3 أنواع هيالورونيك. ترطيب، إشراقة، تقليل مظهر الانتفاخ والخطوط الدقيقة. أصلي 100%." />
   <meta name="theme-color" content="#0f6b4e"/>
 
-  <!-- Font -->
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="AXIS-Y Vegan Collagen Eye Serum | سيروم الكولاجين النباتي للعين والشفايف" />
+  <meta property="og:description" content="كولاجين نباتي + ببتيدات + 3 أنواع هيالورونيك. ترطيب، إشراقة، تقليل مظهر الانتفاخ والخطوط الدقيقة." />
+  <meta property="og:image" content="https://i.postimg.cc/W3v8Y6PJ/photo_٢٠٢٥_١١_٠١_١٦_٢٥_٠٣.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -244,11 +248,8 @@
 
     .thumbs{
       display:grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
-    }
-    @media (max-width: 520px){
-      .thumbs{ grid-template-columns: repeat(4, 1fr); }
     }
     .thumb{
       border-radius: 12px;
@@ -561,58 +562,57 @@
       background: rgba(0,0,0,.10);
     }
 
+    /* ===== Flatten mode: كله طبقة واحدة (بدون كروت وطبقات) ===== */
 
-/* ===== Flatten mode: كله طبقة واحدة (بدون كروت وطبقات) ===== */
+    /* 1) خفف الخلفية العامة */
+    body{
+      background:
+        radial-gradient(900px 600px at 30% -10%, rgba(25,179,122,.22), transparent 55%),
+        radial-gradient(800px 600px at 90% 10%, rgba(191,255,229,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1)) !important;
+    }
 
-/* 1) خفف الخلفية العامة */
-body{
-  background:
-    radial-gradient(900px 600px at 30% -10%, rgba(25,179,122,.22), transparent 55%),
-    radial-gradient(800px 600px at 90% 10%, rgba(191,255,229,.10), transparent 55%),
-    linear-gradient(180deg, var(--bg0), var(--bg1)) !important;
-}
+    /* 2) خلّي الـ panel نفسه طبقة واحدة واضحة */
+    .panel{
+      background: rgba(255,255,255,.06) !important;
+      border: 1px solid rgba(255,255,255,.12) !important;
+      box-shadow: none !important;
+    }
 
-/* 2) خلّي الـ panel نفسه طبقة واحدة واضحة */
-.panel{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.12) !important;
-  box-shadow: none !important;
-}
+    /* 3) شيل شكل “الكروت” وخليها نفس الطبقة */
+    .card{
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
+    }
 
-/* 3) شيل شكل “الكروت” وخليها نفس الطبقة */
-.card{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  overflow: visible !important;
-}
+    /* 4) خلي الهيدر (topbar) بسيط */
+    .topbar{
+      background: transparent !important;
+      border-bottom: 1px solid rgba(255,255,255,.10) !important;
+    }
 
-/* 4) خلي الهيدر (topbar) بسيط */
-.topbar{
-  background: transparent !important;
-  border-bottom: 1px solid rgba(255,255,255,.10) !important;
-}
+    /* 5) عناوين الأقسام بدل كارت */
+    .card .hd{
+      background: transparent !important;
+      border-bottom: 1px solid rgba(255,255,255,.10) !important;
+      padding: 14px 0 10px !important;
+    }
+    .card .bd{
+      padding: 14px 0 18px !important;
+    }
 
-/* 5) عناوين الأقسام بدل كارت */
-.card .hd{
-  background: transparent !important;
-  border-bottom: 1px solid rgba(255,255,255,.10) !important;
-  padding: 14px 0 10px !important;
-}
-.card .bd{
-  padding: 14px 0 18px !important;
-}
+    /* 6) قلّل تأثير الظلال في العناصر الداخلية */
+    .hero, .thumb, details, .review, .seal, .priceRow, .tile, .bullet{
+      box-shadow: none !important;
+    }
 
-/* 6) قلّل تأثير الظلال في العناصر الداخلية */
-.hero, .thumb, details, .review, .seal, .priceRow, .tile, .bullet{
-  box-shadow: none !important;
-}
+    /* 7) اختياري: قلل الـ floaters (النقط المتحركة) لو محسسها طبقات */
+    .floaters{ opacity:.35 !important; }
 
-/* 7) اختياري: قلل الـ floaters (النقط المتحركة) لو محسسها طبقات */
-.floaters{ opacity:.35 !important; }
-
-.badge{ display:none !important; }
+    .badge{ display:none !important; }
 
   </style>
 </head>
@@ -636,16 +636,11 @@ body{
           </div>
         </div>
 
-        <div class="chips" aria-label="Quick highlights">
-           
-       
-       
-        </div>
+        <div class="chips" aria-label="Quick highlights"></div>
       </div>
 
       <section class="content">
 
-        <!-- LEFT: Gallery + Price -->
         <div class="card">
           <div class="hd">
             <h2>الصور (اضغط للتبديل + تكبير)</h2>
@@ -656,32 +651,28 @@ body{
             <div class="gallery">
 
               <div class="hero" id="hero" role="button" tabindex="0" aria-label="تكبير الصورة">
-                <img id="heroImg" src="https://i.postimg.cc/3rm7ZmW8/0h_ZSr6QEvofc1VSP4Kf6AJZXif_Q2z_UNBq_In5d_LKr.webp" alt="AXIS-Y Vegan Collagen Eye Serum" loading="eager">
+                <img id="heroImg" src="https://i.postimg.cc/W3v8Y6PJ/photo_٢٠٢٥_١١_٠١_١٦_٢٥_٠٣.jpg" alt="AXIS-Y Vegan Collagen Eye Serum" loading="eager">
                 <div class="heroTag">اضغط للتكبير</div>
               </div>
 
               <div class="thumbs" id="thumbs" aria-label="صور مصغرة">
-                <div class="thumb active" data-src="https://i.postimg.cc/3rm7ZmW8/0h_ZSr6QEvofc1VSP4Kf6AJZXif_Q2z_UNBq_In5d_LKr.webp"><img src="https://i.postimg.cc/3rm7ZmW8/0h_ZSr6QEvofc1VSP4Kf6AJZXif_Q2z_UNBq_In5d_LKr.webp" alt="صورة 1" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/3rm7ZmNs/1.jpg"><img src="https://i.postimg.cc/3rm7ZmNs/1.jpg" alt="صورة 2" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/wTzz4MsH/121.webp"><img src="https://i.postimg.cc/wTzz4MsH/121.webp" alt="صورة 3" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/SQCqGCj0/3.jpg"><img src="https://i.postimg.cc/SQCqGCj0/3.jpg" alt="صورة 4" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/ryxc9xs7/5.jpg"><img src="https://i.postimg.cc/ryxc9xs7/5.jpg" alt="صورة 5" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/Vsn1Fn5s/613652233_1302885458534940_7693903219864563638_n.jpg"><img src="https://i.postimg.cc/Vsn1Fn5s/613652233_1302885458534940_7693903219864563638_n.jpg" alt="صورة 6" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/66nwhnTK/7.jpg"><img src="https://i.postimg.cc/66nwhnTK/7.jpg" alt="صورة 7" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/ZYpZLp04/71zr_Nwe_Myd_L_AC_UF350_350_QL80.jpg"><img src="https://i.postimg.cc/ZYpZLp04/71zr_Nwe_Myd_L_AC_UF350_350_QL80.jpg" alt="صورة 8" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/Y2YkxYjk/8.jpg"><img src="https://i.postimg.cc/Y2YkxYjk/8.jpg" alt="صورة 9" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/SN441RzF/axis_y_vegan_collagen_eye_serum_10ml_syrom_alaayn_balkolajyn_alnbaty_mn_aksys_oay_10_ml_669586.webp"><img src="https://i.postimg.cc/SN441RzF/axis_y_vegan_collagen_eye_serum_10ml_syrom_alaayn_balkolajyn_alnbaty_mn_aksys_oay_10_ml_669586.webp" alt="صورة 10" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/ZKmmsnyh/Vegan_Collagen_Eye_Serum_1.webp"><img src="https://i.postimg.cc/ZKmmsnyh/Vegan_Collagen_Eye_Serum_1.webp" alt="صورة 11" loading="lazy"></div>
-                <div class="thumb" data-src="https://i.postimg.cc/L6SSQ5Zp/Vegan_Collagen_Eye_Serum_2.webp"><img src="https://i.postimg.cc/L6SSQ5Zp/Vegan_Collagen_Eye_Serum_2.webp" alt="صورة 12" loading="lazy"></div>
+                <div class="thumb active" data-src="https://i.postimg.cc/W3v8Y6PJ/photo_٢٠٢٥_١١_٠١_١٦_٢٥_٠٣.jpg"><img src="https://i.postimg.cc/W3v8Y6PJ/photo_٢٠٢٥_١١_٠١_١٦_٢٥_٠٣.jpg" alt="صورة 1" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/tTjkvtHZ/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٣.jpg"><img src="https://i.postimg.cc/tTjkvtHZ/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٣.jpg" alt="صورة 2" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/hjBsZbqJ/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٤.jpg"><img src="https://i.postimg.cc/hjBsZbqJ/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٤.jpg" alt="صورة 3" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/k4msYFdR/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٥.jpg"><img src="https://i.postimg.cc/k4msYFdR/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٥.jpg" alt="صورة 4" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/Y9HRDfwW/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٩.jpg"><img src="https://i.postimg.cc/Y9HRDfwW/photo_٢٠٢٥_١١_٠١_١٦_٣١_٣٩.jpg" alt="صورة 5" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/tTjkvtHP/photo_٢٠٢٥_١١_٠١_١٦_٣٢_١٠.jpg"><img src="https://i.postimg.cc/tTjkvtHP/photo_٢٠٢٥_١١_٠١_١٦_٣٢_١٠.jpg" alt="صورة 6" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/k4msYFdK/photo_٢٠٢٥_١١_٠١_١٦_٣٢_١١.jpg"><img src="https://i.postimg.cc/k4msYFdK/photo_٢٠٢٥_١١_٠١_١٦_٣٢_١١.jpg" alt="صورة 7" loading="lazy"></div>
+                <div class="thumb" data-src="https://i.postimg.cc/NMcDC7wR/photo_٢٠٢٥_١١_٠١_١٦_٣٢_١٤.jpg"><img src="https://i.postimg.cc/NMcDC7wR/photo_٢٠٢٥_١١_٠١_١٦_٣٢_١٤.jpg" alt="صورة 8" loading="lazy"></div>
               </div>
 
               <div class="priceBox" aria-label="السعر">
                 <div class="priceRow">
                   <div>
-                    <div class="before">السعر قبل الخصم: <s>1300</s></div>
-                    <div class="after">السعر بعد الخصم: 889</div>
+                    <div class="before">السعر قبل الخصم: <s>1550</s></div>
+                    <div class="after">السعر بعد الخصم: 1149</div>
                   </div>
-                  <div class="off">خصم حوالي 32% 🔥</div>
+                  <div class="off">خصم حوالي 26% 🔥</div>
                 </div>
 
                 <div class="seal" aria-label="الأصالة">
@@ -699,7 +690,6 @@ body{
           </div>
         </div>
 
-        <!-- RIGHT: Details -->
         <div class="card">
           <div class="hd">
             <h2>تفاصيل المنتج </h2>
@@ -776,14 +766,13 @@ body{
                     <p>ترطيب وتنعيم خصوصًا للشفايف الجافة.</p>
                   </div>
                 </div>
-                <p class="note">لو تحب أضيف “قائمة INCI كاملة” ابعتهالي نصًّا (أو صورة واضحة) وأنا أرتبهالك بنفس ستايل الصفحة.</p>
+                <p class="note">لو تحب أضيف “قائمة INCI كاملة” ابعتهالي نصًّا (أو صورة واضحة) وأنا أرتبهالك بنفس ستايل الصفحة.</p>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- FULL WIDTH: FAQ + Reviews -->
         <div class="card" style="grid-column: 1 / -1;">
           <div class="hd">
             <h2>الأسئلة الشائعة (FAQ)</h2>
@@ -852,7 +841,6 @@ body{
           <div class="bd">
             <div class="reviewsGrid" aria-label="Reviews">
 
-              <!-- 19 Reviews -->
               <div class="review"><div class="rvTop"><div class="who"><b>نهى</b><span>من أسبوع</span></div><div class="stars">★★★★★</div></div><p>ترطيب عالي جدًا تحت العين، والإحساس بالمطبّق البارد مريح خصوصًا الصبح.</p></div>
               <div class="review"><div class="rvTop"><div class="who"><b>مريم</b><span>من 10 أيام</span></div><div class="stars">★★★★★</div></div><p>الملمس خفيف ومش دهني، والشفايف بقت أنعم معاه بفرق واضح.</p></div>
               <div class="review"><div class="rvTop"><div class="who"><b>سارة</b><span>من أسبوعين</span></div><div class="stars">★★★★★</div></div><p>الهالات عندي بتهدى تدريجيًا، أهم حاجة الاستمرار… عجبني جدًا.</p></div>
@@ -877,64 +865,62 @@ body{
               <div class="review"><div class="rvTop"><div class="who"><b>رنا</b><span>من 8 أيام</span></div><div class="stars">★★★★★</div></div><p>بحطّه قبل النوم… وبصحى ألاقي المنطقة مرطبة ومفيش جفاف.</p></div>
               <div class="review"><div class="rvTop"><div class="who"><b>لوجين</b><span>من 2 أسابيع</span></div><div class="stars">★★★★★</div></div><p>بصراحة “اسهري براحتك” دي حقيقية 😂 المنتج مريح ونتيجته تدريجية لطيفة.</p></div>
 
-        
-        </div>
+            </div>
 
-      </section>
+          </section>
 
-      <div class="foot">
-        <b>تنبيه لطيف:</b> المنتج تجميلي للعناية بالمظهر. لو عندك حساسية شديدة/تهيج مستمر يُفضّل استشارة مختص.
+          <div class="foot">
+            <b>تنبيه لطيف:</b> المنتج تجميلي للعناية بالمظهر. لو عندك حساسية شديدة/تهيج مستمر يُفضّل استشارة مختص.
+          </div>
+
+        </main>
       </div>
 
-    </main>
-  </div>
+      <div class="lb" id="lb" aria-hidden="true">
+        <div class="lbBox" role="dialog" aria-label="تكبير الصورة">
+          <button class="lbClose" id="lbClose" aria-label="إغلاق">✕</button>
+          <img id="lbImg" src="" alt="صورة مكبرة">
+        </div>
+      </div>
 
-  <!-- Lightbox -->
-  <div class="lb" id="lb" aria-hidden="true">
-    <div class="lbBox" role="dialog" aria-label="تكبير الصورة">
-      <button class="lbClose" id="lbClose" aria-label="إغلاق">✕</button>
-      <img id="lbImg" src="" alt="صورة مكبرة">
-    </div>
-  </div>
+      <script>
+        (function(){
+          const hero = document.getElementById('hero');
+          const heroImg = document.getElementById('heroImg');
+          const thumbs = Array.from(document.querySelectorAll('#thumbs .thumb'));
 
-  <script>
-    (function(){
-      const hero = document.getElementById('hero');
-      const heroImg = document.getElementById('heroImg');
-      const thumbs = Array.from(document.querySelectorAll('#thumbs .thumb'));
+          function setActive(src){
+            heroImg.src = src;
+            thumbs.forEach(t => t.classList.toggle('active', t.dataset.src === src));
+          }
 
-      function setActive(src){
-        heroImg.src = src;
-        thumbs.forEach(t => t.classList.toggle('active', t.dataset.src === src));
-      }
+          thumbs.forEach(t => {
+            t.addEventListener('click', () => setActive(t.dataset.src));
+          });
 
-      thumbs.forEach(t => {
-        t.addEventListener('click', () => setActive(t.dataset.src));
-      });
+          // Lightbox
+          const lb = document.getElementById('lb');
+          const lbImg = document.getElementById('lbImg');
+          const lbClose = document.getElementById('lbClose');
 
-      // Lightbox
-      const lb = document.getElementById('lb');
-      const lbImg = document.getElementById('lbImg');
-      const lbClose = document.getElementById('lbClose');
+          function openLB(){
+            lbImg.src = heroImg.src;
+            lb.classList.add('open');
+            lb.setAttribute('aria-hidden','false');
+          }
+          function closeLB(){
+            lb.classList.remove('open');
+            lb.setAttribute('aria-hidden','true');
+            lbImg.src = '';
+          }
 
-      function openLB(){
-        lbImg.src = heroImg.src;
-        lb.classList.add('open');
-        lb.setAttribute('aria-hidden','false');
-      }
-      function closeLB(){
-        lb.classList.remove('open');
-        lb.setAttribute('aria-hidden','true');
-        lbImg.src = '';
-      }
+          hero.addEventListener('click', openLB);
+          hero.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') openLB(); });
 
-      hero.addEventListener('click', openLB);
-      hero.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') openLB(); });
-
-      lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
-      lbClose.addEventListener('click', closeLB);
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLB(); });
-    })();
-  </script>
-</body>
-</html>
+          lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
+          lbClose.addEventListener('click', closeLB);
+          document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLB(); });
+        })();
+      </script>
+    </body>
+    </html>
